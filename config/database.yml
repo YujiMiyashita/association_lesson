@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  template: template0
+  pool: 5
+
+development:
+  <<: *default
+  database: association_lesson_development
+
+test:
+  <<: *default
+  database: association_lesson_test
+
+production:
+  <<: *default
+  database: association_lesson_production
+  username: association_lesson
+  password: <%= ENV['ASSOCIATION_LESSON_DATABASE_PASSWORD'] %>
